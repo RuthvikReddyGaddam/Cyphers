@@ -1,0 +1,27 @@
+import random
+from math import gcd 
+
+p = 3
+q = 11
+m = 88
+phi = (p-1)*(q-1)
+n = p*q
+def gen_e(phi):
+    while True:
+        e = random.randint(2,phi-1)
+        if gcd(e,phi) == 1:
+            return e
+def gen_d (e,phi):
+    while True: 
+        d = random.randint(2,phi)
+        if (e*d)%phi == 1:
+            return d
+
+e = gen_e(phi)
+d = gen_d(e,phi)
+c = pow(m,e) % n
+m = pow(c,d) % n
+
+print(c,m)
+    
+    

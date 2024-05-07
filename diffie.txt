@@ -1,0 +1,29 @@
+import random
+
+q = 7
+alpha = 0
+n = 1 
+arr = []
+for prim_root in range (1,q):
+    boole = True
+    k =1 
+    arr=[]
+    for i in range (1,q):
+        arr.append(pow(prim_root,i)%q)
+    arr.sort()
+    print(arr)
+    while(k<q):
+        if(k not in arr):
+            boole = False
+        k+=1
+    if(boole==True):
+        break
+print(prim_root)
+xa = random.randint(1,q)
+xb = random.randint(1,q)
+ya = (prim_root**xa) % q
+yb = (prim_root**xb) % q
+ka = (yb**xa) % q
+kb = (ya**xb) % q
+
+print(xa,xb,ya,yb,ka,kb)

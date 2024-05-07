@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char msg[] = "hello world";
+    int depth = 3;
+
+    int i,j,k=-1,msglen = strlen(msg), row=0,col=0;
+    char enmsg[depth][msglen];    
+    
+    for(i=0;i<depth;i++){
+        for(j=0;j<msglen;j++){
+            enmsg[i][j] = "\n";
+        }
+    }
+    
+    for(i=0;i<msglen;i++){
+        enmsg[row][col++] = msg[i]; 
+        if(row==0 || row==depth-1){
+            k = k*(-1);
+        }
+        row = row+k;
+    }
+    
+        for(i=0;i<depth;i++){
+        for(j=0;j<msglen;j++){
+            if(enmsg[i][j] != "\n"){
+                printf("%c", enmsg[i][j]);
+            }
+        }
+    }
+}
